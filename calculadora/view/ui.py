@@ -16,8 +16,9 @@ class UIConsola:
             print("6. Raíz cuadrada modular")
             print("7. Cuadrados perfectos en Zn")
             print("8. Salir")
-
+            print("----------------------------------------")
             opcion = int(input("Seleccione una opción: "))
+            print("-----------------------------------------")
             if opcion == 8:
                 break
             if opcion == 1:
@@ -51,9 +52,13 @@ class UIConsola:
                 if numero >= 0:
                     return numero
                 else:
+                    print("---------------------------------------------------")
                     print("Por favor, ingrese un número entero positivo.")
+                    print("---------------------------------------------------")
             except ValueError:
-                print("Por favor, ingrese un número entero positivo.")
+                print("---------------------------------------------------")
+                print("Por favor, ingrese un número entero positivo. No Float")
+                print("---------------------------------------------------")
 
     def suma_modular(self):
         
@@ -61,55 +66,73 @@ class UIConsola:
         b = self.leer_entero_positivo("Ingrese el segundo número (entero positivo): ")
         n = self.leer_entero_positivo("Ingrese el módulo (entero positivo): ")
         resultado = (a + b) % n
+        print("---------------------------------------------------")
         print(f"El resultado de la suma modular es: {resultado}\n")
+        print("---------------------------------------------------")
 
     def producto_modular(self):
         a = self.leer_entero_positivo("Ingrese el primer número: ")
         b = self.leer_entero_positivo("Ingrese el segundo número: ")
         n = self.leer_entero_positivo("Ingrese el módulo: ")
         resultado = (a * b) % n
+        print("--------------------------------------------------------")
         print(f"El resultado del producto modular es: {resultado}\n")
+        print("---------------------------------------------------------")
 
     def inverso_modular(self):
-        a = int(input("Ingrese el número: "))
-        n = int(input("Ingrese el módulo: "))
+        a = self.leer_entero_positivo("Ingrese el número: ")
+        n = self.leer_entero_positivo("Ingrese el módulo: ")
         resultado = self.calculadora.modular_inverse(a, n)
         if resultado is not None:
+            print("---------------------------------------------------------")
             print(f"El inverso modular de {a} en Z_{n} es: {resultado}\n")
+            print("----------------------------------------------------------")
         else:
+            print("---------------------------------------------------")
             print(f"No existe un inverso modular para {a} en Z_{n}\n")
+            print("---------------------------------------------------")
 
     def division_modular(self):
-        a = int(input("Ingrese el numerador: "))
-        b = int(input("Ingrese el denominador: "))
-        n = int(input("Ingrese el módulo: "))
+        a = self.leer_entero_positivo("Ingrese el numerador: ")
+        b = self.leer_entero_positivo("Ingrese el denominador: ")
+        n = self.leer_entero_positivo("Ingrese el módulo: ")
         inverso_b = self.calculadora.modular_inverse(b, n)
         if inverso_b is not None:
             resultado = (a * inverso_b) % n
+            print("-----------------------------------------------------------")
             print(f"El resultado de la división modular es: {resultado}\n")
+            print("------------------------------------------------------------")
         else:
             print(f"No se puede realizar la división modular en Z_{n} porque {b} no tiene inverso\n")
 
     def potencia_modular(self):
-        a = int(input("Ingrese la base: "))
-        k = int(input("Ingrese el exponente: "))
-        n = int(input("Ingrese el módulo: "))
+        a = self.leer_entero_positivo("Ingrese la base: ")
+        k = self.leer_entero_positivo("Ingrese el exponente: ")
+        n = self.leer_entero_positivo("Ingrese el módulo: ")
         resultado = pow(a, k, n)
+        print("---------------------------------------------------------")
         print(f"El resultado de la potencia modular es: {resultado}\n")
+        print("----------------------------------------------------------")
 
     def raiz_cuadrada_modular(self):
-        a = int(input("Ingrese el número: "))
-        p = int(input("Ingrese el primo (de la forma 4k+3): "))
+        a = self.leer_entero_positivo("Ingrese el número: ")
+        p = self.leer_entero_positivo("Ingrese el primo (de la forma 4k+3): ")
         try:
             resultados = self.calculadora.modular_sqrt(a, p)
             if resultados:
+                print("---------------------------------------------------------------------------------")
                 print(f"Las raíces cuadradas de {a} en Z_{p} son: {resultados[0]} y {resultados[1]}\n")
+                print("---------------------------------------------------------------------------------")
             else:
                 print(f"No hay raíces cuadradas de {a} en Z_{p}\n")
         except ValueError as e:
+            print("--------------------------------------------------------------------------------------------")
             print(f"Error: {e}\n")
+            print("---------------------------------------------------------------------------------------------")
 
     def cuadrados_perfectos_mod_n(self):
-        n = int(input("Ingrese el valor de n: "))
+        n = self.leer_entero_positivo("Ingrese el valor de n: ")
         resultados = self.calculadora.perfect_squares_mod_n(n)
+        print("-------------------------------------------------------------------------------------")
         print(f"Los cuadrados perfectos en Z_{n} son: {resultados}\n")
+        print("--------------------------------------------------------------------------------------")

@@ -1,9 +1,9 @@
 import math
 
-def gcd(a, b):
+"""def gcd(a, b):
     while b:
         a, b = b, a % b
-    return a
+    return a"""
 
 def extended_gcd(a, b):
     x, y, u, v = 0, 1, 1, 0
