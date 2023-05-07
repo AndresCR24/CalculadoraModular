@@ -1,3 +1,4 @@
+"""
 import math
 
 def extended(a, b):
@@ -92,4 +93,4 @@ def main():
 
 if __name__ == "__main__":
     main()
-
+"""
