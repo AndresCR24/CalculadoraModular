@@ -1,4 +1,4 @@
-Calculadora Modular:
+Calculadora Modular: \n
 Este programa en Python implementa una calculadora modular capaz de manejar números gigantes con más de 30 cifras.
 
 Ejecución:
