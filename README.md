@@ -1,7 +1,7 @@
-Calculadora Modular.
+Calculadora Modular:
 Este programa en Python implementa una calculadora modular capaz de manejar números gigantes con más de 30 cifras.
 
-Ejecución
+Ejecución:
 El programa se ejecuta desde el archivo app.py. Asegúrate de tener Python instalado en tu sistema antes de ejecutarlo.
 
 Funcionalidades:
