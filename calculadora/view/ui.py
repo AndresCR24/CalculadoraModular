@@ -16,10 +16,12 @@ class UIConsola:
             print("6. Raíz cuadrada modular")
             print("7. Cuadrados perfectos en Zn")
             print("8. Salir")
-            print("----------------------------------------")
+            print("------------------------------------------------------------------")
             opcion = int(input("Seleccione una opción: "))
-            print("-----------------------------------------")
+            print("------------------------------------------------------------------")
             if opcion == 8:
+                print("Gracias por utilizar la Calculadora modular de: Andres Cardenas")
+                print("------------------------------------------------------------------")
                 break
             if opcion == 1:
                 self.suma_modular()
@@ -43,7 +45,9 @@ class UIConsola:
                 self.cuadrados_perfectos_mod_n()
 
             else:
+                print("------------------------------------------------------------------")
                 print("Opción inválida. Por favor, intente de nuevo.")
+                print("------------------------------------------------------------------")
 
     def leer_entero_positivo(self,mensaje):
         while True:
@@ -56,16 +60,16 @@ class UIConsola:
                     print("Por favor, ingrese un número entero positivo.")
                     print("---------------------------------------------------")
             except ValueError:
-                print("---------------------------------------------------")
-                print("Por favor, ingrese un número entero positivo. No Float")
-                print("---------------------------------------------------")
+                print("-------------------------------------------------------")
+                print("Por favor, ingrese un número entero positivo.")
+                print("--------------------------------------------------------")
 
     def suma_modular(self):
         
         a = self.leer_entero_positivo("Ingrese el primer número (entero positivo): ")
         b = self.leer_entero_positivo("Ingrese el segundo número (entero positivo): ")
         n = self.leer_entero_positivo("Ingrese el módulo (entero positivo): ")
-        resultado = (a + b) % n
+        resultado = self.calculadora.suma_modular(a, b, n)
         print("---------------------------------------------------")
         print(f"El resultado de la suma modular es: {resultado}\n")
         print("---------------------------------------------------")
@@ -74,7 +78,7 @@ class UIConsola:
         a = self.leer_entero_positivo("Ingrese el primer número: ")
         b = self.leer_entero_positivo("Ingrese el segundo número: ")
         n = self.leer_entero_positivo("Ingrese el módulo: ")
-        resultado = (a * b) % n
+        resultado = self.calculadora.multiplicacion_modular(a, b, n)
         print("--------------------------------------------------------")
         print(f"El resultado del producto modular es: {resultado}\n")
         print("---------------------------------------------------------")
@@ -82,7 +86,7 @@ class UIConsola:
     def inverso_modular(self):
         a = self.leer_entero_positivo("Ingrese el número: ")
         n = self.leer_entero_positivo("Ingrese el módulo: ")
-        resultado = self.calculadora.modular_inverse(a, n)
+        resultado = self.calculadora.inverso_modular(a, n)
         if resultado is not None:
             print("---------------------------------------------------------")
             print(f"El inverso modular de {a} en Z_{n} es: {resultado}\n")
@@ -96,7 +100,7 @@ class UIConsola:
         a = self.leer_entero_positivo("Ingrese el numerador: ")
         b = self.leer_entero_positivo("Ingrese el denominador: ")
         n = self.leer_entero_positivo("Ingrese el módulo: ")
-        inverso_b = self.calculadora.modular_inverse(b, n)
+        inverso_b = self.calculadora.inverso_modular(b, n)
         if inverso_b is not None:
             resultado = (a * inverso_b) % n
             print("-----------------------------------------------------------")
@@ -118,7 +122,7 @@ class UIConsola:
         a = self.leer_entero_positivo("Ingrese el número: ")
         p = self.leer_entero_positivo("Ingrese el primo (de la forma 4k+3): ")
         try:
-            resultados = self.calculadora.modular_sqrt(a, p)
+            resultados = self.calculadora.raiz_cuadrada_modular(a, p)
             if resultados:
                 print("---------------------------------------------------------------------------------")
                 print(f"Las raíces cuadradas de {a} en Z_{p} son: {resultados[1]} y {resultados[0]}\n")
@@ -132,7 +136,7 @@ class UIConsola:
 
     def cuadrados_perfectos_mod_n(self):
         n = self.leer_entero_positivo("Ingrese el valor de n: ")
-        resultados = self.calculadora.perfect_squares_mod_n(n)
+        resultados = self.calculadora.cuadrados_perfectos(n)
         print("-------------------------------------------------------------------------------------")
         print(f"Los cuadrados perfectos en Z_{n} son: {resultados}\n")
         print("--------------------------------------------------------------------------------------")
