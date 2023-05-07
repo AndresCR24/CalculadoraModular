@@ -1,11 +1,6 @@
 import math
 
-"""def gcd(a, b):
-    while b:
-        a, b = b, a % b
-    return a"""
-
-def extended_gcd(a, b):
+def extended(a, b):
     x, y, u, v = 0, 1, 1, 0
     while a != 0:
         q, r = b // a, b % a
@@ -14,7 +9,7 @@ def extended_gcd(a, b):
     return b, x, y
 
 def modular_inverse(a, n):
-    g, x, _ = extended_gcd(a, n)
+    g, x, _ = extended(a, n)
     if g == 1:
         return x % n
     return None
@@ -30,7 +25,7 @@ def modular_sqrt(a, p):
     return [r, p - r]
 
 def perfect_squares_mod_n(n):
-    return [i * i % n for i in range(n)]
+    return list(set(i * i % n for i in range(n)))
 
 def main():
     while True:

@@ -121,7 +121,7 @@ class UIConsola:
             resultados = self.calculadora.modular_sqrt(a, p)
             if resultados:
                 print("---------------------------------------------------------------------------------")
-                print(f"Las raíces cuadradas de {a} en Z_{p} son: {resultados[0]} y {resultados[1]}\n")
+                print(f"Las raíces cuadradas de {a} en Z_{p} son: {resultados[1]} y {resultados[0]}\n")
                 print("---------------------------------------------------------------------------------")
             else:
                 print(f"No hay raíces cuadradas de {a} en Z_{p}\n")
