@@ -8,7 +8,7 @@ class CalculadoraModular:
     def multiplicacion_modular(self, a, b, n):
         return ((a * b) % n)
     
-    def extended(self, a, b):  #Algoritmo de euclides para calcular MCD
+    def extended(self, a, b):  #Algoritmo extendido de euclides para calcular MCD
         x, y, u, v = 0, 1, 1, 0
         while a != 0:
             q, r = b // a, b % a
@@ -40,10 +40,7 @@ class CalculadoraModular:
             a = i * i
             if a % n == valor:
                 raices.append(i)
-
-        if len(raices) > 0:
-            lst_raices = str(raices)[1:-1]
-        return lst_raices
+        return raices
 
 
     def cuadrados_perfectos(self, n):

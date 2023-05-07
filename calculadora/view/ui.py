@@ -121,18 +121,13 @@ class UIConsola:
     def raiz_cuadrada_modular(self):
         a = self.leer_entero_positivo("Ingrese el número: ")
         n = self.leer_entero_positivo("Ingrese el modulo: ")
-        try:
-            resultados = self.calculadora.raizCuadradaModular(a, n)
-            if resultados:
-                print("---------------------------------------------------------------------------------")
-                print(f"Las raíces cuadradas de {a} en Z_{n} son: {resultados}")
-                print("---------------------------------------------------------------------------------")
-            else:
-                print(f"No hay raíces cuadradas de {a} en Z_{n}\n")
-        except ValueError as e:
-            print("--------------------------------------------------------------------------------------------")
-            print(f"Error: {e}\n")
-            print("---------------------------------------------------------------------------------------------")
+        resultados = self.calculadora.raizCuadradaModular(a, n)
+        if len(resultados) >= 1:
+            print("---------------------------------------------------------------------------------")
+            print(f"Las raíces cuadradas de {a} en Z_{n} son: {resultados}")
+            print("---------------------------------------------------------------------------------")
+        else:
+            print(f"No hay raíces cuadradas de {a} en Z_{n}\n")
 
     def cuadrados_perfectos_mod_n(self):
         n = self.leer_entero_positivo("Ingrese el valor de n: ")
