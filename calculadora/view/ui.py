@@ -100,35 +100,35 @@ class UIConsola:
         a = self.leer_entero_positivo("Ingrese el numerador: ")
         b = self.leer_entero_positivo("Ingrese el denominador: ")
         n = self.leer_entero_positivo("Ingrese el módulo: ")
-        inverso_b = self.calculadora.inverso_modular(b, n)
-        if inverso_b is not None:
-            resultado = (a * inverso_b) % n
+        resultado = self.calculadora.division_modular(a, b, n)
+        if resultado is not None:
             print("-----------------------------------------------------------")
             print(f"El resultado de la división modular es: {resultado}\n")
             print("------------------------------------------------------------")
         else:
+            print("---------------------------------------------------------------------------------")
             print(f"No se puede realizar la división modular en Z_{n} porque {b} no tiene inverso\n")
-
+            print("----------------------------------------------------------------------------------")
     def potencia_modular(self):
         a = self.leer_entero_positivo("Ingrese la base: ")
         k = self.leer_entero_positivo("Ingrese el exponente: ")
         n = self.leer_entero_positivo("Ingrese el módulo: ")
-        resultado = pow(a, k, n)
+        resultado = self.calculadora.potencia_modular(a, k, n)
         print("---------------------------------------------------------")
         print(f"El resultado de la potencia modular es: {resultado}\n")
         print("----------------------------------------------------------")
 
     def raiz_cuadrada_modular(self):
         a = self.leer_entero_positivo("Ingrese el número: ")
-        p = self.leer_entero_positivo("Ingrese el primo (de la forma 4k+3): ")
+        n = self.leer_entero_positivo("Ingrese el modulo: ")
         try:
-            resultados = self.calculadora.raiz_cuadrada_modular(a, p)
+            resultados = self.calculadora.raizCuadradaModular(a, n)
             if resultados:
                 print("---------------------------------------------------------------------------------")
-                print(f"Las raíces cuadradas de {a} en Z_{p} son: {resultados[1]} y {resultados[0]}\n")
+                print(f"Las raíces cuadradas de {a} en Z_{n} son: {resultados}")
                 print("---------------------------------------------------------------------------------")
             else:
-                print(f"No hay raíces cuadradas de {a} en Z_{p}\n")
+                print(f"No hay raíces cuadradas de {a} en Z_{n}\n")
         except ValueError as e:
             print("--------------------------------------------------------------------------------------------")
             print(f"Error: {e}\n")

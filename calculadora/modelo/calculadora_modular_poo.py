@@ -24,16 +24,27 @@ class CalculadoraModular:
     
     def division_modular(self, a, b, n):
         
-        return ((a * self.inverso_modular(b, n)) % n)
+        inverso_b = self.inverso_modular(b, n)
+        if inverso_b is not None:
+            return ((a * inverso_b) % n)
+        else:
+            return None
+    
+    def potencia_modular(self, a, k, n):
+        return pow(a, k, n)
 
-    def raiz_cuadrada_modular(self, a, p):
+    def raizCuadradaModular(self, valor, n):
+        valor = valor % n
+        raices = []
+        for i in range(0, n):
+            a = i * i
+            if a % n == valor:
+                raices.append(i)
 
-        if p == 2:
-            return [a % 2]
-        if pow(a, (p - 1) // 2, p) != 1:
-            return []
-        r = pow(a, (p + 1) // 4, p)
-        return [r, p - r]
+        if len(raices) > 0:
+            lst_raices = str(raices)[1:-1]
+        return lst_raices
+
 
     def cuadrados_perfectos(self, n):
         return list(set(i * i % n for i in range(n)))
