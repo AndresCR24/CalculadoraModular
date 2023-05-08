@@ -87,3 +87,16 @@ class CalculadoraModular:
         #list comprehension que calcula el cuadrado (i*i) y luego le saca el modulo
         #utilizacion del set para borrar los duplicados en la lista
         return list(set(i * i % n for i in range(n)))
+
+    def lista_inversos(self, n):
+        inversos = {}
+        for A in range(0, n):
+            for X in range(1, n):
+                operacion = (A % n) * (X % n)
+                if operacion % n == 1:
+                    inversos[A] = X
+        return inversos
+
+    
+    def modulo(self, a, n):
+        return(a % n)
