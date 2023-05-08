@@ -53,6 +53,21 @@ class UIConsola:
         while True:
             try:
                 numero = int(input(mensaje))
+                if numero >= 1:
+                    return numero
+                else:
+                    print("---------------------------------------------------")
+                    print("Por favor, ingrese un número entero positivo.")
+                    print("---------------------------------------------------")
+            except ValueError:
+                print("-------------------------------------------------------")
+                print("Por favor, ingrese un número entero positivo.")
+                print("--------------------------------------------------------")
+
+    def exp_raiz(self,mensaje):
+        while True:
+            try:
+                numero = int(input(mensaje))
                 if numero >= 0:
                     return numero
                 else:
@@ -119,7 +134,7 @@ class UIConsola:
         print("----------------------------------------------------------")
 
     def raiz_cuadrada_modular(self):
-        a = self.leer_entero_positivo("Ingrese el número: ")
+        a = self.exp_raiz("Ingrese el número: ")
         n = self.leer_entero_positivo("Ingrese el modulo: ")
         resultados = self.calculadora.raizCuadradaModular(a, n)
         if len(resultados) >= 1:
