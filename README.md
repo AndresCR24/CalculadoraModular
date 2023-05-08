@@ -4,7 +4,11 @@ Este programa en Python implementa una calculadora modular capaz de manejar núm
 
 Ejecución #IMPORTANTE:
 
-El programa se ejecuta desde el archivo app.py
+El programa se ejecuta desde el archivo app.py  #IMPORTANTE
+
+La logica del codigo se encuentra en calculadora/modelo/calculadora_modular_poo.py  #IMPORTANTE
+
+La implementacion por consola se encuentra en calculadora/view/ui.py  #IMPORTANTE
 
 Funcionalidades:
 El programa presenta un menú interactivo en la consola que permite realizar diversas operaciones modulares en Zn. A continuación se detallan las opciones disponibles:
