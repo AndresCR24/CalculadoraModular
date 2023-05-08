@@ -61,8 +61,11 @@ class CalculadoraModular:
             #Si no cumple devuelve None
             return None
         
-    # Calcula la potencia modular de a^k módulo n
+    #La función potencia_modular toma tres argumentos: a, la base de la potencia, k,
+    #el exponente de la potencia, y n, el módulo.
     def potencia_modular(self, a, k, n):
+        #Utiliza la función incorporada pow(a, k, n) para calcular la potencia modular.
+        #Retorna el resultado de la operación pow(a, k, n), que es el valor de a^k (mod n)
         return pow(a, k, n)
     
     # Encuentra las raíces cuadradas de un número módulo n
