@@ -17,7 +17,8 @@ class UIConsola:
             print("7. Cuadrados perfectos en Zn")
             print("8. Salir")
             print("------------------------------------------------------------------")
-            opcion = int(input("Seleccione una opción: "))
+            opcion = self.excepcion_menu("Seleccione una opción: ")
+            
             print("------------------------------------------------------------------")
             if opcion == 8:
                 print("Gracias por utilizar la Calculadora modular de: Andres Cardenas")
@@ -48,6 +49,23 @@ class UIConsola:
                 print("------------------------------------------------------------------")
                 print("Opción inválida. Por favor, intente de nuevo.")
                 print("------------------------------------------------------------------")
+
+    def excepcion_menu(self,mensaje):
+        while True:
+            try:
+                numero = int(input(mensaje))
+                if numero >= 1:
+                    return numero
+                else:
+                    print("---------------------------------------------------")
+                    print("Por favor, ingrese un dato valido en el menu.")
+                    print("---------------------------------------------------")
+                    self.menu()
+            except ValueError:
+                print("-------------------------------------------------------")
+                print("Por favor, ingrese un dato valido al menu.")
+                print("--------------------------------------------------------")
+                self.menu()
 
     def leer_entero_positivo(self,mensaje):
         while True:
